@@ -6,7 +6,7 @@ const Loading = () => {
     <div className="flex justify-center item-center">
       <MagnifyingGlass
         visible={true}
-        height="80"
+        height="550"
         width="80"
         ariaLabel="MagnifyingGlass-loading"
         wrapperStyle={{}}
