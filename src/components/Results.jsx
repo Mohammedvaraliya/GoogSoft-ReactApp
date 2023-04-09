@@ -14,9 +14,9 @@ const Results = () => {
 
   
   useEffect(() => {
-    getSearchResults('search', 'messi');
-    getImageResults('search', 'messi');
-  }, []);
+    getSearchResults(location.pathname, searchSearchterm);
+    getImageResults('search', imageSearchTerm);
+  }, [searchSearchterm, location.pathname, searchSearchterm]);
 
   if (isLoading) return <Loading />
   if (isImageLoading) return <Loading />

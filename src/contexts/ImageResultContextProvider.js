@@ -7,7 +7,7 @@ export const ImageResultContextProvider = ({ children }) => {
 
     const [imageResults, setImageResults] = useState([]);
     const [isImageLoading, setIsImageLoading] = useState(false);
-    const [imageSearchTerm, setImageSearchTerm] = useState('');
+    const [imageSearchTerm, setImageSearchTerm] = useState('mohammed varaliya github');
 
     const getImageResults = async (type, query = imageSearchTerm) => {
         setIsImageLoading(true);

@@ -7,17 +7,17 @@ export const ResultContextProvider = ({ children }) => {
 
     const [searchResults, setSearchResults] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [searchSearchTerm, setSearchSearchTerm] = useState('');
+    const [searchSearchTerm, setSearchSearchTerm] = useState('mohammed varaliya github');
 
     const getSearchResults = async (type, query = searchSearchTerm) => {
         setIsLoading(true);
       
-        const url = `${baseUrl}/${type}?query=${query}&gl=us&lr=en&num=10&start=0&sort=relevance`;
+        const url = `${baseUrl}${type}?query=${query}&gl=us&lr=en&num=10&start=0&sort=relevance`;
       
         const options = {
           method: 'GET',
           headers: {
-            'X-RapidAPI-Key': 'e1f101ee27mshbb6ef8d2daf5cb8p1bb381jsna7d4bfe0d350',
+            'X-RapidAPI-Key': '454c321bb1mshd4acfca06684f8fp13a43ejsn235deb4a76e7',
             'X-RapidAPI-Host': 'google-search72.p.rapidapi.com'
           }
         };
