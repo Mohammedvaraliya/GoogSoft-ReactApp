@@ -2,23 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { ResultContextProvider } from './contexts/SearchResultcontextProvider';
 import { ImageResultContextProvider } from './contexts/ImageResultContextProvider';
+import { NewsResultContextProvider } from './contexts/NewsResultContextProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <ResultContextProvider>
     <ImageResultContextProvider>
-    <React.StrictMode>
-      <BrowserRouter>
-        <Routes>
-          <Route path="*" element={<App />}>
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </React.StrictMode>
+      <NewsResultContextProvider>
+        <React.StrictMode>
+          <HashRouter>
+            <Routes>
+              <Route path="*" element={<App />}>
+              </Route>
+            </Routes>
+          </HashRouter>
+        </React.StrictMode>
+      </NewsResultContextProvider>
     </ImageResultContextProvider>
   </ResultContextProvider>
 );
