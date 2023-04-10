@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import defaultImage from "../static/default_news_img.jpg";
-
 import { useSearchResultContext } from '../contexts/SearchResultcontextProvider';
 import { useImageResultContext } from '../contexts/ImageResultContextProvider';
 import { useNewsResultContext } from '../contexts/NewsResultContextProvider';
