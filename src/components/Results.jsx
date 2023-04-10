@@ -6,6 +6,7 @@ import defaultImage from "../static/default_news_img.jpg";
 import { useSearchResultContext } from '../contexts/SearchResultcontextProvider';
 import { useImageResultContext } from '../contexts/ImageResultContextProvider';
 import { useNewsResultContext } from '../contexts/NewsResultContextProvider';
+import { useVideoResultContext } from '../contexts/VideoResultContextProvider';
 import Loading from './Loading';
 
 const Results = () => {
@@ -13,6 +14,7 @@ const Results = () => {
   const { searchResults, isLoading, getSearchResults, searchSearchterm, setSearchSearchTerm } = useSearchResultContext();
   const { getImageResults, imageResults, imageSearchTerm, setImageSearchTerm, isImageLoading } = useImageResultContext();
   const { getNewsResults, newsResults, newsSearchTerm, setNewsSearchTerm, isNewsLoading } = useNewsResultContext();
+  const { getVideoResults, videoResults, videoSearchTerm, setVideoSearchTerm, isVideoLoading } = useVideoResultContext();
   const location = useLocation();
 
   
@@ -20,11 +22,10 @@ const Results = () => {
     getSearchResults(searchSearchterm);
     getImageResults(imageSearchTerm);
     getNewsResults(newsSearchTerm);
+    getVideoResults(videoSearchTerm);
   }, [location.pathname, searchSearchterm, imageSearchTerm, newsSearchTerm]);
 
-  if (isLoading) return <Loading />
-  if (isImageLoading) return <Loading />
-  if (isNewsLoading) return <Loading />
+  if (isLoading || isImageLoading || isNewsLoading || isVideoLoading) return <Loading />;
   console.log(location.pathname)
 
 
@@ -89,13 +90,46 @@ const Results = () => {
 
       );
 
-    case '/videos':
+      case '/videos':
       return (
-        <div className='flex flex-wrap'>
-
+        <div className='px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 py-10'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
+            {videoResults?.value?.map((video, index) => (
+              <div key={index} className='bg-white rounded-md overflow-hidden shadow-md dark:bg-gray-900 dark:text-gray-100 text-gray-900 hover:shadow-2xl'>
+                <a href={ video.webSearchUrl } target="_blank" rel="noreferrer">
+                <ReactPlayer
+                  url={video.contentUrl}
+                  controls
+                  width='100%'
+                  height='300px'
+                  config={{
+                    youtube: {
+                      playerVars: { autoplay: 0 },
+                      embedOptions: { allow: 'autoplay' },
+                      origin: 'http://localhost:3000/#/videos'
+                    },
+                  }}
+                />
+                <div className='p-4'>
+                  <h3 className='text-lg font-medium mb-2 dark:text-gray-100'>{video.name}</h3>
+                  <p className='text-gray-500 text-sm mb-2 dark:text-gray-300'>{video.description.length > 130 ? video.description.substring(0, 130) : video.description}...</p>
+                  <div className='flex justify-between items-center'>
+                    <p className='text-gray-500 text-sm dark:text-gray-300'>{video.publisher[0].name}</p>
+                    <p className='text-gray-500 text-sm dark:text-gray-300'>{new Date(video.datePublished).toLocaleDateString()}</p>
+                  </div>
+                </div>
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       );
 
+      
+
+      
+
+      
   
     default:
       return 'ERROR!'
