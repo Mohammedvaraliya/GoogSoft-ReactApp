@@ -17,7 +17,7 @@ export const NewsResultContextProvider = ({ children }) => {
         const options = {
           method: 'GET',
           headers: {
-            'X-RapidAPI-Key': '0ee41472b4mshf05a667e36ff4d7p143f75jsn960ce06629a9',
+            'X-RapidAPI-Key': 'ee72647b5cmshe9804fffc398dddp178efejsnab64f391df14',
             'X-RapidAPI-Host': 'real-time-news-data.p.rapidapi.com'
           }
         };
