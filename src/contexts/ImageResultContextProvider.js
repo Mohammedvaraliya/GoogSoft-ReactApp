@@ -12,12 +12,12 @@ export const ImageResultContextProvider = ({ children }) => {
     const getImageResults = async (type, query = imageSearchTerm) => {
         setIsImageLoading(true);
       
-        const url = `${baseUrl}/${type}?query=${query}&region=us`;
+        const url = `${baseUrl}/${type = 'search'}?query=${query}&region=us`;
       
         const options = {
           method: 'GET',
           headers: {
-            'X-RapidAPI-Key': '0ee41472b4mshf05a667e36ff4d7p143f75jsn960ce06629a9',
+            'X-RapidAPI-Key': 'f276fde733msh221f53a683851d3p1e19fdjsn105ef48117d8',
             'X-RapidAPI-Host': 'real-time-image-search.p.rapidapi.com'
           }
         };

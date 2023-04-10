@@ -12,7 +12,7 @@ export const NewsResultContextProvider = ({ children }) => {
     const getNewsResults = async (type, query = newsSearchTerm) => {
         setIsNewsLoading(true);
       
-        const url = `${baseUrl}/${type}?query=${query}&country=US&lang=en`;
+        const url = `${baseUrl}/${type = 'search'}?query=${query}&country=US&lang=en`;
       
         const options = {
           method: 'GET',

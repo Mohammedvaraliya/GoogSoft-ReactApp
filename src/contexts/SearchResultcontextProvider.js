@@ -12,7 +12,7 @@ export const ResultContextProvider = ({ children }) => {
     const getSearchResults = async (type, query = searchSearchTerm) => {
         setIsLoading(true);
       
-        const url = `${baseUrl}${type}?query=${query}&gl=us&lr=en&num=10&start=0&sort=relevance`;
+        const url = `${baseUrl}${type = '/search'}?query=${query}&gl=us&lr=en&num=10&start=0&sort=relevance`;
       
         const options = {
           method: 'GET',

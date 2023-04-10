@@ -17,9 +17,9 @@ const Results = () => {
 
   
   useEffect(() => {
-    getSearchResults(location.pathname, searchSearchterm);
-    getImageResults('search', imageSearchTerm);
-    getNewsResults('search', newsSearchTerm);
+    getSearchResults(searchSearchterm);
+    getImageResults(imageSearchTerm);
+    getNewsResults(newsSearchTerm);
   }, [location.pathname, searchSearchterm, imageSearchTerm, newsSearchTerm]);
 
   if (isLoading) return <Loading />
@@ -68,28 +68,33 @@ const Results = () => {
             <div key={index} className="w-full md:w-1/3 px-2 py-2">
               <a href={link} target="_blank" rel="noreferrer">
                 <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl">
-                <img src={photo_url} onError={(e)=>{e.target.onerror = null; e.target.src= defaultImage}} alt={title} className="h-48 w-full object-cover" />
+                  <img src={photo_url} onError={(e)=>{e.target.onerror = null; e.target.src= defaultImage}} alt={title} className="h-48 w-full object-cover" />
                   <div className="px-6 py-4">
                     <p className="text-sm text-gray-600 mb-2">{published_datetime_utc}</p>
                     <p className="text-xl hover:text-sky-800 hover:underline dark:text-gray-100 text-blue-700 font-bold mb-2">{title}</p>
                   </div>
-                  <div className="px-6 py-4 flex justify-between items-center bg-gray-100 dark:bg-sky-950">
-                    <a href={source_url} target="_blank" rel="noreferrer">
+                  <div className="px-6 py-4 flex justify-between items-center bg-gray-100 dark:bg-stone-900">
+                    <div>
                       <img src={source_logo_url} alt="source logo" className="h-6 w-6 object-cover rounded-full" />
-                    </a>
-                    <a href={source_url} target="_blank" rel="noreferrer">
+                    </div>
+                    <div>
                       <img src={source_favicon_url} alt="source favicon" className="h-6 w-6 object-cover rounded-full" />
-                    </a>
+                    </div>
                   </div>
                 </div>
               </a>
             </div>
           ))}
         </div>
+
       );
 
     case '/videos':
-      return 'VIDEOS';
+      return (
+        <div className='flex flex-wrap'>
+
+        </div>
+      );
 
   
     default:
