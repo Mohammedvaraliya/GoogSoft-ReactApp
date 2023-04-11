@@ -17,7 +17,7 @@ export const ImageResultContextProvider = ({ children }) => {
         const options = {
           method: 'GET',
           headers: {
-            'X-RapidAPI-Key': 'ee72647b5cmshe9804fffc398dddp178efejsnab64f391df14',
+            'X-RapidAPI-Key': process.env.REACT_APP_IMAGE_SEARCH_API_KEY,
             'X-RapidAPI-Host': 'real-time-image-search.p.rapidapi.com'
           }
         };

@@ -17,7 +17,7 @@ export const ResultContextProvider = ({ children }) => {
         const options = {
           method: 'GET',
           headers: {
-            'X-RapidAPI-Key': '31ff9efd22mshd6fe844e2f0111fp157215jsn02764f74c879',
+            'X-RapidAPI-Key': process.env.REACT_APP_GOOGLE_SEARCH_API_KEY,
             'X-RapidAPI-Host': 'google-search72.p.rapidapi.com'
           }
         };

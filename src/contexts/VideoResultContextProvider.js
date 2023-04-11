@@ -17,7 +17,7 @@ export const VideoResultContextProvider = ({ children }) => {
         const options = {
           method: 'GET',
           headers: {
-            'X-RapidAPI-Key': '0ee41472b4mshf05a667e36ff4d7p143f75jsn960ce06629a9',
+            'X-RapidAPI-Key': process.env.REACT_APP_VIDEO_SEARCH_API_KEY,
             'X-RapidAPI-Host': 'bing-video-search1.p.rapidapi.com'
           }
         };

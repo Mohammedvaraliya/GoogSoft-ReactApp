@@ -111,7 +111,7 @@ const Results = () => {
                 />
                 <div className='p-4'>
                   <h3 className='text-lg font-medium mb-2 dark:text-gray-100'>{video.name}</h3>
-                  <p className='text-gray-500 text-sm mb-2 dark:text-gray-300'>{video.description.length > 130 ? video.description.substring(0, 130) : video.description}...</p>
+                  <p className='text-gray-500 text-sm mb-2 dark:text-gray-300'>{(video.description ?? '').length > 130 ? video.description.substring(0, 130) : video.description}...</p>
                   <div className='flex justify-between items-center'>
                     <p className='text-gray-500 text-sm dark:text-gray-300'>{video.publisher[0].name}</p>
                     <p className='text-gray-500 text-sm dark:text-gray-300'>{new Date(video.datePublished).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
